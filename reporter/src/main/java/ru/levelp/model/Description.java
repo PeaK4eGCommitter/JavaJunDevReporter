@@ -1,10 +1,13 @@
 package ru.levelp.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import ru.levelp.dao.LogTypeConverter;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -20,4 +23,10 @@ public class Description {
     private String name;
     @Column
     private String description;
+    @Column
+    @Enumerated(EnumType.STRING)
+    private EntityType entityType;
+    @Column
+    @Convert(converter = LogTypeConverter.class)
+    private LogType log;
 }

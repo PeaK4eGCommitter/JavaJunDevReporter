@@ -1,6 +1,5 @@
 package ru.levelp.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -14,5 +13,5 @@ public class Report extends Description {
     @Column
     private String header;
     @Column
-    private String Body;
+    private String body;
 }
