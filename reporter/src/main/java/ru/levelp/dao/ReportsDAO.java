@@ -10,15 +10,6 @@ import ru.levelp.model.Role;
 import javax.persistence.EntityManager;
 import java.util.List;
 
-/* todo finish it
-
-@NamedQueries({
-        @NamedQuery(
-                name = "getRolesByUserName",
-                query = "select r from roles r where ")
-    }
-)
-*/
 @Data
 @AllArgsConstructor
 public class ReportsDAO implements ReportsDAOInteface {
@@ -43,6 +34,10 @@ public class ReportsDAO implements ReportsDAOInteface {
                     .getResultList();
         }
          */
+        return null;
+    }
+
+    public List<Integer> getRoleIdsByUserId(Integer userId){
         return null;
     }
 }
