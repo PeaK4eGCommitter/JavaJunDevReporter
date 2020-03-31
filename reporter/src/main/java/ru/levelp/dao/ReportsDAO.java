@@ -4,40 +4,45 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.hibernate.annotations.NamedQueries;
 import org.hibernate.annotations.NamedQuery;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 import ru.levelp.model.Report;
 import ru.levelp.model.Role;
+import ru.levelp.model.User;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
+@Repository
 public class ReportsDAO implements ReportsDAOInteface {
     private EntityManager entityManager;
 
+    @Autowired
+    public ReportsDAO(@Qualifier("realManager") EntityManager entityManager){
+        this.entityManager = entityManager;
+    }
+
     @Override
-    public List<Report> getReportsByRoleName(String roleName) {
+    public User getUserByName(String roleName) {
         return null;
     }
 
     @Override
-    public List<Report> getReportsByUserName(String userName) {
+    public Role getRoleByName(String userName) {
         return null;
     }
 
     @Override
-    public List<Role> getRolesByUserName(String userName) {
-        /* todo
+    public void post(Object object) {
+        entityManager.getTransaction().begin();
         try {
-            List<Role> result = entityManager.createQuery("", Role.class)
-                    .setParameter("userName", userName)
-                    .getResultList();
+            entityManager.persist(object);
+        } catch (Throwable cause) {
+            entityManager.getTransaction().rollback();
+            throw cause;
         }
-         */
-        return null;
-    }
-
-    public List<Integer> getRoleIdsByUserId(Integer userId){
-        return null;
+        entityManager.getTransaction().commit();
     }
 }

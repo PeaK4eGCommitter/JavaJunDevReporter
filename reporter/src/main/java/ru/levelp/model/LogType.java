@@ -12,7 +12,6 @@ import java.util.Date;
 @EqualsAndHashCode
 @AllArgsConstructor
 public class LogType {
-
     private String userName;
     private Date recordDate;
 
