@@ -25,6 +25,4 @@ public class Report extends Description {
     @Column
     private String body;
 
-//    @ManyToMany(mappedBy = "roles", targetEntity = Role.class)
-//    private List<Role> roles;
 }

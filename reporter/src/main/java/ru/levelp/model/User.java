@@ -3,15 +3,14 @@ package ru.levelp.model;
 import lombok.Data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.Set;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "Users")
 @Data
 public class User extends Description {
-
     public User(){
         setEntityType(EntityType.USER);
     }
@@ -22,9 +21,5 @@ public class User extends Description {
     @Column
     private String password;
 
-    @OneToMany
-    private Set<Role> roles;
-
-//    @ManyToMany(mappedBy = "users")
-//    private List<Role> roles;
+    @
 }

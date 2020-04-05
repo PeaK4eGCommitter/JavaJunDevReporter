@@ -12,14 +12,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.Table;
 
 /**
  * https://docs.jboss.org/hibernate/core/3.6/reference/en-US/html_single/#collections-bidirectional
  */
-
 @Entity
-@Table(name = "Descriptions")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Data
 public class Description {
@@ -36,4 +33,9 @@ public class Description {
     @Column
     @Convert(converter = LogTypeConverter.class)
     private LogType log;
+
+    public Description(String name, String description){
+        this.setName(name);
+        this.setDescription(description);
+    }
 }

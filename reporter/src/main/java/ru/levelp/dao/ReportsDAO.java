@@ -1,18 +1,12 @@
 package ru.levelp.dao;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.hibernate.annotations.NamedQueries;
-import org.hibernate.annotations.NamedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
-import ru.levelp.model.Report;
 import ru.levelp.model.Role;
 import ru.levelp.model.User;
-
 import javax.persistence.EntityManager;
-import java.util.List;
 
 @Data
 @Repository
