@@ -12,13 +12,13 @@ import javax.persistence.PersistenceContext;
 @Data
 @Repository
 public class ReportsDAO implements ReportsDAOInteface {
-    @PersistenceContext
+//    @PersistenceContext
     private EntityManager entityManager;
 
-//    @Autowired
-//    public ReportsDAO(@Qualifier("realManager") EntityManager entityManager){
-//        this.entityManager = entityManager;
-//    }
+    @Autowired
+    public ReportsDAO(@Qualifier("realManager") EntityManager entityManager){
+        this.entityManager = entityManager;
+    }
 
     @Override
     public User getUserByName(String roleName) {

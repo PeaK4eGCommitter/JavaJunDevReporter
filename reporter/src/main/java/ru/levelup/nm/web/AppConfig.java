@@ -12,22 +12,21 @@ import javax.persistence.Persistence;
 @Configuration
 @EnableJpaRepositories(basePackages = "ru.levelup.nm.dao")
 public class AppConfig{
-/*
+
     @Bean
     @Qualifier("realManager")
     public EntityManager getRealEntityManager(EntityManagerFactory entityManagerFactory){
         return entityManagerFactory.createEntityManager();
     }
-
+/*
     @Bean
     @Qualifier("fakeManager")
     public EntityManager getFakeEntityManager(EntityManagerFactory entityManagerFactory){
         return null;
     }
-
+*/
     @Bean
     public EntityManagerFactory getFactory(){
         return Persistence.createEntityManagerFactory("TestPersistenceUnit");
     }
- */
 }

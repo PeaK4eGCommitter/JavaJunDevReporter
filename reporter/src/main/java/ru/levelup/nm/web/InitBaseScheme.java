@@ -30,6 +30,11 @@ public class InitBaseScheme {
             logType.setUserName("Vasiliy");
             user.setLog(logType);
             usersDAO.persistObject(user);
+
+            User test = usersDAO.findUserByLogin("root");
+            if ("root".equals(test.getLogin())){
+                test.setDescription("sdfg");
+            }
         }
     }
 }
