@@ -1,4 +1,4 @@
-package ru.levelup.nm.dao;
+package ru.levelup.nm.dao.garbage;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import ru.levelup.nm.model.tables.Role;
 import ru.levelup.nm.model.tables.User;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 @Data
 @Repository
@@ -16,7 +15,7 @@ public class ReportsDAO implements ReportsDAOInteface {
     private EntityManager entityManager;
 
     @Autowired
-    public ReportsDAO(@Qualifier("realManager") EntityManager entityManager){
+    public ReportsDAO(@Qualifier("entityManagerFactory") EntityManager entityManager){
         this.entityManager = entityManager;
     }
 

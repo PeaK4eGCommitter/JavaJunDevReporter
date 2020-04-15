@@ -1,6 +1,7 @@
-package ru.levelup.nm.model;
+package ru.levelup.nm.model.tables;
 
 import lombok.Data;
+import ru.levelup.nm.model.EntityType;
 import ru.levelup.nm.model.tables.Description;
 
 import javax.persistence.Column;

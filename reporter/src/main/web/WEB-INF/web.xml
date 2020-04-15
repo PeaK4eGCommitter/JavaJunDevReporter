@@ -12,11 +12,12 @@
         </init-param>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>ru.levelup.nm.web.ConfigurationProd</param-value>
+            <param-value>ru.levelup.web.ProdConfiguration</param-value>
         </init-param>
 
         <load-on-startup>1</load-on-startup>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>DispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>

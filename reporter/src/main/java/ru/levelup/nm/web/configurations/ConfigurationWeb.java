@@ -1,4 +1,4 @@
-package ru.levelup.nm.web;
+package ru.levelup.nm.web.configurations;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @Import(RepositoryRestMvcConfiguration.class)
-public class WebConfiguration implements WebMvcConfigurer {
+public class ConfigurationWeb implements WebMvcConfigurer {
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
         registry.jsp("/pages/", ".jsp").viewClass(JstlView.class);

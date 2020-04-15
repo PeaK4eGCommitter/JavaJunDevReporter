@@ -12,38 +12,31 @@ import ru.levelup.nm.model.tables.Role;
 import ru.levelup.nm.tests.TestConfiguration;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = TestConfiguration.class)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 public class UsersDAOTest {
-    private UsersDAO usersDAO;
+    @Autowired
+    private MainDAO mainDAO;
+    @Autowired
     private EntityManager entityManager;
-    private EntityManagerFactory entityManagerFactory;
 
     @Before
     public void setup() {
-        entityManagerFactory = Persistence.createEntityManagerFactory("TestPersistenceUnit");
-        entityManager = entityManagerFactory.createEntityManager();
-        usersDAO = new UsersDAO(entityManager);
+
     }
 
     @Test
     @Transactional
     public void createRole() {
-        Role role = null;
-        entityManager.getTransaction().begin();
-        try {
-            role = usersDAO.createRole("RoleName", "Role Desription");
-            entityManager.getTransaction().commit();
-        } catch (Exception e){
-            entityManager.getTransaction().rollback();
-        }
+        Role role = mainDAO.createRole("RoleName", "Role Desription");
         assertNotNull(role);
         assertEquals("RoleName", role.getName());
-        Role foundRole = usersDAO.FindRole("RoleName");
+        Role foundRole = mainDAO.FindRole("RoleName");
         assertNotNull(foundRole);
         assertEquals("RoleName", foundRole.getName());
     }
