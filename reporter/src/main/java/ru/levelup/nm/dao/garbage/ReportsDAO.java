@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import ru.levelup.nm.model.tables.Role;
-import ru.levelup.nm.model.tables.User;
+import ru.levelup.nm.model.tables.UserAccount;
 import javax.persistence.EntityManager;
 
 @Data
@@ -20,7 +20,7 @@ public class ReportsDAO implements ReportsDAOInteface {
     }
 
     @Override
-    public User getUserByName(String roleName) {
+    public UserAccount getUserByName(String roleName) {
         return null;
     }
 

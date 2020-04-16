@@ -13,12 +13,12 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = User.TABLE_NAME)
+@Table(name = UserAccount.TABLE_NAME)
 @Data
-public class User extends Description {
-    public static final String TABLE_NAME = "Users";
+public class UserAccount extends Description {
+    public static final String TABLE_NAME = "Accounts";
 
-    public User(){
+    public UserAccount(){
         setEntityType(EntityType.USER);
     }
 

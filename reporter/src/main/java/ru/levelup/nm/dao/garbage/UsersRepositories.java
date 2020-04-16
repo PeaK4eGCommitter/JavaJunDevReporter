@@ -6,7 +6,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.stereotype.Repository;
-import ru.levelup.nm.model.tables.User;
+import ru.levelup.nm.model.tables.UserAccount;
 
 @Repository
 @RepositoryRestResource(
@@ -14,10 +14,10 @@ import ru.levelup.nm.model.tables.User;
         itemResourceRel = UsersRepositories.API_URL,
         path = UsersRepositories.API_URL
 )
-public interface UsersRepositories extends PagingAndSortingRepository<User, Integer> {
+public interface UsersRepositories extends PagingAndSortingRepository<UserAccount, Integer> {
     String API_URL = "rest-data-users";
 
-    User findByLogin(@Param("loginName") String login);
+    UserAccount findByLogin(@Param("loginName") String login);
 
 //    Page<User> getAllUsers(Pageable page);
 }

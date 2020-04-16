@@ -3,7 +3,7 @@ package ru.levelup.nm.dao.repositories;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.levelup.nm.model.tables.Role;
-import ru.levelup.nm.model.tables.User;
+import ru.levelup.nm.model.tables.UserAccount;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -22,21 +22,21 @@ public class MainDAO {
     }
 
     @Transactional
-    public User createUser(String userName, String login, String password){
-        User newUser = new User();
-        newUser.setName(userName);
-        newUser.setLogin(login);
-        newUser.setPassword(password);
-        entityManager.persist(newUser);
-        return newUser;
+    public UserAccount createUserAccount(String userName, String login, String password){
+        UserAccount newUserAccount = new UserAccount();
+        newUserAccount.setName(userName);
+        newUserAccount.setLogin(login);
+        newUserAccount.setPassword(password);
+        entityManager.persist(newUserAccount);
+        return newUserAccount;
     }
 
     public Role FindRole(String roleName){
         return (Role) getObjectFromTable("Role", roleName);
     }
 
-    public User FindUser(String userName){
-        return (User) getObjectFromTable("User", userName);
+    public UserAccount FindUser(String userName){
+        return (UserAccount) getObjectFromTable("User", userName);
     }
 
     private Object getObjectFromTable(String tableName, String name){
@@ -52,10 +52,10 @@ public class MainDAO {
         entityManager.persist(object);
     }
 
-    public User findUserByLogin(String login) {
+    public UserAccount findUserByLogin(String login) {
         try {
             final String tableName = "User";
-            return (User) entityManager.createQuery("SELECT u from " + tableName + " u WHERE u.login = :entityName")
+            return (UserAccount) entityManager.createQuery("SELECT u from " + tableName + " u WHERE u.login = :entityName")
                     .setParameter("entityName", login).getSingleResult();
         } catch (NoResultException cause){
             return null;

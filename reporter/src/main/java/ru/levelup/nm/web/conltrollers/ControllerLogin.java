@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.levelup.nm.dao.repositories.MainDAO;
-import ru.levelup.nm.model.tables.User;
+import ru.levelup.nm.model.tables.UserAccount;
 
 import javax.servlet.http.HttpSession;
 
@@ -34,9 +34,9 @@ public class ControllerLogin {
         if (session.getAttribute(VERIFIED_USER_NAME_ATTRIBUTE) != null) {
             return "redirect:/";
         }
-        User user = mainDAO.findUserByLogin(loginValue);
-        if (user != null && passwordValue.equals(user.getPassword())) {
-            session.setAttribute(VERIFIED_USER_NAME_ATTRIBUTE, user.getName());
+        UserAccount userAccount = mainDAO.findUserByLogin(loginValue);
+        if (userAccount != null && passwordValue.equals(userAccount.getPassword())) {
+            session.setAttribute(VERIFIED_USER_NAME_ATTRIBUTE, userAccount.getName());
             return "redirect:/";
         } else {
             return "redirect:/login?login=" + loginValue;

@@ -3,7 +3,7 @@ package ru.levelup.nm.model;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import ru.levelup.nm.model.tables.User;
+import ru.levelup.nm.model.tables.UserAccount;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -31,13 +31,13 @@ public class DescriptionTest {
 
     @Test
     public void createUserTest() {
-        User user = new User();
-        user.setEmail("test-user@email.com");
-        user.setLogin("testLogin");
-        user.setPassword("testPass");
+        UserAccount userAccount = new UserAccount();
+        userAccount.setEmail("test-user@email.com");
+        userAccount.setLogin("testLogin");
+        userAccount.setPassword("testPass");
 
         manager.getTransaction().begin();
-        manager.persist(user);
+        manager.persist(userAccount);
         manager.getTransaction().commit();
     }
 }
