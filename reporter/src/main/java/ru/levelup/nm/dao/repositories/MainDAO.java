@@ -25,6 +25,8 @@ public class MainDAO {
     public User createUser(String userName, String login, String password){
         User newUser = new User();
         newUser.setName(userName);
+        newUser.setLogin(login);
+        newUser.setPassword(password);
         entityManager.persist(newUser);
         return newUser;
     }

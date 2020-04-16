@@ -20,7 +20,7 @@ public class ConfigurationWeb implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/scripts/*.js")
-                .addResourceLocations("/scripts/");
+        registry.addResourceHandler("/resources/**")
+                .addResourceLocations("/resources/");
     }
 }
