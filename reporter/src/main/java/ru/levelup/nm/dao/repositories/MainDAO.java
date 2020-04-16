@@ -54,7 +54,7 @@ public class MainDAO {
 
     public UserAccount findUserByLogin(String login) {
         try {
-            final String tableName = "User";
+            final String tableName = "UserAccount";
             return (UserAccount) entityManager.createQuery("SELECT u from " + tableName + " u WHERE u.login = :entityName")
                     .setParameter("entityName", login).getSingleResult();
         } catch (NoResultException cause){

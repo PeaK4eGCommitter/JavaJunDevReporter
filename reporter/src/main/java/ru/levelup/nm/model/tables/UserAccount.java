@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
 @Table(name = UserAccount.TABLE_NAME)
 @Data
 public class UserAccount extends Description {
-    public static final String TABLE_NAME = "Accounts";
+    public static final String TABLE_NAME = "UserAccounts";
 
     public UserAccount(){
         setEntityType(EntityType.USER);
