@@ -11,9 +11,8 @@ import ru.levelup.nm.model.tables.UserAccount;
 import javax.servlet.http.HttpSession;
 
 @Controller
-public class ControllerLogin {
-    private static final String MAPPING_PATH = "/login";
-    public static final String VERIFIED_USER_NAME_ATTRIBUTE = "verifiedUserName";
+public class ControllerReports {
+    private static final String MAPPING_PATH = "/reports";
 
     @Autowired
     private MainDAO mainDAO;
@@ -22,7 +21,7 @@ public class ControllerLogin {
     public String loginPage(
             @RequestParam(required = false) String login,
             HttpSession session) {
-        return session.getAttribute(VERIFIED_USER_NAME_ATTRIBUTE) != null ? "redirect:/" : "login";
+        return session.getAttribute(ControllerLogin.VERIFIED_USER_NAME_ATTRIBUTE) != null ? "reports" : "redirect:/";
     }
 
     @PostMapping(MAPPING_PATH)
@@ -30,15 +29,18 @@ public class ControllerLogin {
             HttpSession session,
             @RequestParam("usernameField") String loginValue,
             @RequestParam("passwordField") String passwordValue) {
-        if (session.getAttribute(VERIFIED_USER_NAME_ATTRIBUTE) != null) {
+        if (session.getAttribute(ControllerLogin.VERIFIED_USER_NAME_ATTRIBUTE) != null) {
             return "redirect:/reports";
         }
         UserAccount userAccount = mainDAO.findUserByLogin(loginValue);
         if (userAccount != null && passwordValue.equals(userAccount.getPassword())) {
-            session.setAttribute(VERIFIED_USER_NAME_ATTRIBUTE, userAccount.getName());
+            session.setAttribute(ControllerLogin.VERIFIED_USER_NAME_ATTRIBUTE, userAccount.getName());
             return "redirect:/";
         } else {
             return "redirect:/login?login=" + loginValue;
         }
+
+
     }
+
 }
