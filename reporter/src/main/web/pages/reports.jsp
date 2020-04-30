@@ -17,10 +17,14 @@
             <tr><td>2</td><td>name2</td><td>process 2</td></tr>
             <tr><td>3</td><td>name3</td><td>process 3</td></tr>
         </table>
+        <INPUT TYPE="HIDDEN" NAME="buttonName">
+        <INPUT TYPE="BUTTON" VALUE="Button 1" ONCLICK="button1()">
+        <INPUT TYPE="BUTTON" VALUE="Button 2" ONCLICK="button2()">
+        <INPUT TYPE="BUTTON" VALUE="Button 3" ONCLICK="button3()">
         <table width="300" align="center">
             <tr><td><button class="w3-right w3-btn w3-blue"
-                            formmethod="post"
-                            formaction="login" type="submit">To main page</button></td></tr>
+                            formmethod="get"
+                            formaction="index" type="submit">To main page</button></td></tr>
         </table>
     </form:form>
 </body>
